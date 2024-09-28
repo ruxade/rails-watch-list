@@ -1,8 +1,13 @@
 class MovieController < ApplicationController
 
+  # def index
+  #   @movies = Movie.all
+  #   render json: @movies # Or render a view if using HTML
+  # end
+
   def index
-    @movies = Movie.all
-    render json: @movies # Or render a view if using HTML
+    @movies = MovieService.fetch_top_rated_movies["results"]
+    render json: @movies
   end
 
   def show
