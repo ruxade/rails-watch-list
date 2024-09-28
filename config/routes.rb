@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   # All Lists
-  get 'lists', to: 'lists#index'
+  # get 'lists', to: 'lists#index'
+  root to: 'lists#index'
 
   # specific list
   get 'lists/:id', to: 'lists#show'
@@ -17,5 +18,12 @@ Rails.application.routes.draw do
   # new list
   get 'lists/new', to: 'lists#new', as: 'new_list'
   post 'lists', to: 'lists#create'
-  
+
+  # edit
+  get 'lists/:id', to: 'lists#edit', as: 'edit_list'
+  post 'lists', to: 'lists#update'
+
+  # delete
+  delete 'lists/:id', to: 'lits#destroy'
+
 end
